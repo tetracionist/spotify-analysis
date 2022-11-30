@@ -12,9 +12,9 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=creds.client_id, client
 #for i in range(100):
 #    artist_list.append(playlist['tracks']['items'][i]['track']['artists'][0]['id'])
 artist_list = []
-playlist_id = "6irjuoIeqJdCTSPqwmPcf2"
+playlist_url = input('Input Playlist URL (e.g. https://open.spotify.com/playlist/6eV2eTfwDzuM0U4ZzIQKdf?si=28272a46cc464d2a): ').split('/')[4].split('?')[0]
 
-playlist = sp.playlist_items(playlist_id)
+playlist = sp.playlist_items(playlist_url)
 for i in playlist['items']:
     for j in i['track']['artists']:
         artist_list.append(j['id'])
